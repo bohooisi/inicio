@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+
+    <title>Ejemplo Countdown</title>
+    <style>
+      body {
+        margin: 0;
+      }
+      #seconds {
+        font-size: 7em;
+        font-weight: 900;
+        position: fixed;
+        font-family: arial;
+        color: brown;
+        top: 0;
+      }
+
+      iframe {
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+      }
+    </style>
+  </head>
+
+  <body>
+      <!-- // Cargar pag de fondo -->
+    <iframe src="https://bohooisi.github.io/super-madre/"
+      frameborder="0"
+    ></iframe>
+    <!-- // contador de segundos -->
+    <span id="seconds"></span>
+
+    <script>
+      var seconds = 10; // seconds for HTML
+      var foo; // variable for clearInterval() function
+
+      function redirect() {
+        document.location.href = "https://www.elmostrador.cl/";
+      }
+
+      function updateSecs() {
+        document.getElementById("seconds").innerHTML = seconds;
+        seconds--;
+        if (seconds == -1) {
+          clearInterval(foo);
+          redirect();
+        }
+      }
+
+      function countdownTimer() {
+        foo = setInterval(function () {
+          updateSecs();
+        }, 1000);
+      }
+
+      countdownTimer();
+    </script>
+  </body>
+</html>
